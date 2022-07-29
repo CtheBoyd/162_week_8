@@ -7,6 +7,8 @@
 
 
 def count_seq():
+    """Generator function. that doesn't require any arguments and generates a sequence
+       that starts like this: 2, 12, 1112, 3112, 132112, 1113122112, 311311222112, 13211321322112, ..."""
     yield "2"
     yield "12"
     value = 3
@@ -17,10 +19,10 @@ def count_seq():
             length = len(nums)
             count = 1
             temp = ""
-            for y in range(1, length):
-                if nums[y] != nums[y-1]:
+            for digit in range(1, length):
+                if nums[digit] != nums[digit-1]:
                     temp += str(count)
-                    temp += nums[y-1]
+                    temp += nums[digit-1]
                     count = 1
                 else:
                     count += 1
@@ -30,7 +32,7 @@ def count_seq():
 
 
 
-if __name__ =="__main__":
-    gen = count_seq()
-    for i in range(8):
-        print(next(gen))
+#if __name__ =="__main__":
+#    gen = count_seq()
+#   for i in range(8):
+#       print(next(gen))
